@@ -2,8 +2,8 @@
 const path = require('path');
 const glob = require('glob');
 
-function handleEntry(pagePath) {
-  let entry= {};
+function getEntryPage(pagePath) {
+  let pages = {};
   glob.sync(path.resolve(pagePath, './**/*.html')).forEach(item => {
     item = path.resolve(item, './');
     const dir = path.dirname(item);
@@ -12,26 +12,24 @@ function handleEntry(pagePath) {
       .replace(/^\//, '')
       .replace(/^\\/, '')
       .replace(/\\/g, '/');
-    entry[pageName] = {
+    pages[pageName] = {
       entry: path.resolve(dir, './main.ts'),
       template: item,
       filename: pageName + '/' + 'index.html',
       title: pageName
     };
   });
-  return entry;
+  return pages;
 }
 
-const pages = handleEntry(path.resolve(__dirname, './src/application'));
+const pages = getEntryPage(path.resolve(__dirname, './src/application'));
 
 module.exports = {
   productionSourceMap: false,
   pages: pages,
   devServer: {
-    open: true,
+    open: false,
     // host: 'localhost',
-    port: 8080,
-    https: false,
-    hotOnly: false
+    port: 8080
   }
 };
