@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <div>home</div>
+  <div class="">
+    <div :attr="attr" :class="attr">attr</div>
   </div>
 </template>
 
@@ -12,6 +12,10 @@ import {Options, Vue} from 'vue-class-component';
   components: {}
 })
 export default class Home extends Vue {
+  attr = ''
 
+  created() {
+    this.attr = 'test-attr'
+  }
 }
 </script>
