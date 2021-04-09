@@ -1,9 +1,10 @@
 /* eslint-disable */
 const path = require('path');
 const glob = require('glob');
+const dateFormat = require('dateformat');
 
 function getEntryPage(pagePath) {
-  let pages = {};
+  const pages = {};
   glob.sync(path.resolve(pagePath, './**/*.html')).forEach(item => {
     item = path.resolve(item, './');
     const dir = path.dirname(item);
@@ -15,8 +16,7 @@ function getEntryPage(pagePath) {
     pages[pageName] = {
       entry: path.resolve(dir, './main.ts'),
       template: item,
-      filename: pageName + '/' + 'index.html',
-      title: pageName
+      filename: pageName + '/index.html'
     };
   });
   return pages;
@@ -31,5 +31,6 @@ module.exports = {
     open: false,
     // host: 'localhost',
     port: 8080
-  }
+  },
+  assetsDir: dateFormat('yyyymmddHHMMss')
 };
