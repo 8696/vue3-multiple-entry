@@ -2,6 +2,7 @@
   <div class="">
     <button @click="sum++">+1</button>
     <div>{{ sum2 }}</div>
+    <div>{{ sum3 }}</div>
   </div>
 </template>
 
@@ -18,6 +19,10 @@ import {Options, Vue} from 'vue-class-component';
   }
 })
 export default class Home extends Vue {
-  sum = 0
+  protected sum = 0
+
+  private get sum3(): number {
+    return this.sum + 1
+  }
 }
 </script>
