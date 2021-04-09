@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div :class="color">home</div>
-    <input type="text" v-model="color">
+    <input class="red" type="text" v-model="color">
   </div>
 </template>
 
