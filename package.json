@@ -1,20 +1,22 @@
 {
   "name": "vue3-multiple-entry",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "eslint": "cross-env NODE_ENV=production eslint --fix ./src --ext .ts --ext .vue"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "vue": "^3.2.31",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
