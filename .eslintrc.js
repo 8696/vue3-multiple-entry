@@ -11,8 +11,9 @@ module.exports = {
     '@vue/typescript/recommended'
   ],
   parserOptions: {
-    ecmaVersion: 2021
+    ecmaVersion: 2020
   },
+
   overrides: [
     {
       files: [
@@ -20,13 +21,13 @@ module.exports = {
         '**/tests/unit/**/*.spec.{j,t}s?(x)'
       ],
       env: {
-        mocha: true
+        jest: true
       }
     }
   ],
   rules: {
     'no-console': IS_ENV_PRODUCTION ? 'warn' : 'off',
-    'no-debugger': 'off',
+    'no-debugger': IS_ENV_PRODUCTION ? 'warn' : 'off',
     // 禁止条件表达式中出现赋值操作符
     'no-cond-assign': ['error', 'always'],
     // 禁止在条件中使用常量表达式
@@ -229,5 +230,6 @@ module.exports = {
     '@typescript-eslint/no-inferrable-types': 'off',
     // 允许出现空函数
     '@typescript-eslint/no-empty-function': IS_ENV_PRODUCTION ? ['error'] : ['warn']
+    // 'vue/multi-word-component-names': 'off'
   }
 }

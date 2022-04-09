@@ -1,6 +1,6 @@
 const path = require('path');
 const glob = require('glob');
-const dateFormat = require('dateformat');
+const { defineConfig } = require('@vue/cli-service')
 
 function getEntryPage(pagePath) {
   const pages = {};
@@ -23,7 +23,9 @@ function getEntryPage(pagePath) {
 
 const pages = getEntryPage(path.resolve(__dirname, './src/application'));
 
-module.exports = {
+
+module.exports = defineConfig({
+  transpileDependencies: true,
   productionSourceMap: false,
   pages: pages,
   devServer: {
@@ -31,5 +33,6 @@ module.exports = {
     // host: 'localhost',
     port: 8080
   },
-  assetsDir: dateFormat('yyyymmddHHMMss')
-};
+  lintOnSave: false,
+  assetsDir: new Date().getTime().toString()
+})
