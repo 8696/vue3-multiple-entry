@@ -8,15 +8,16 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "eslint": "cross-env NODE_ENV=production eslint --fix ./src --ext .ts --ext .vue"
+    "eslint": "cross-env NODE_ENV=production eslint --fix ./src --ext .ts --ext .vue",
+    "git:commit": "yarn eslint && git add . && git commit -m \"feat: git:commit\" && git push origin master"
   },
   "dependencies": {
-    "core-js": "^3.22.8",
+    "core-js": "^3.23.4",
     "cross-env": "^7.0.3",
-    "glob": "^7.2.3",
+    "glob": "^8.0.3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.37",
-    "vue-router": "^4.0.16",
+    "vue-router": "^4.1.2",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
@@ -37,7 +38,7 @@
     "@vue/vue3-jest": "^27.0.0",
     "babel-jest": "^27.5.1",
     "cypress": "^8.7.0",
-    "eslint": "^8.17.0",
+    "eslint": "^8.19.0",
     "eslint-plugin-vue": "^8.7.1",
     "jest": "^27.5.1",
     "lint-staged": "^11.2.6",
